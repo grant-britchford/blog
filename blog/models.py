@@ -16,10 +16,10 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     
     class Meta:
-        ordering = ["created_on", "author"]
+        ordering = ["-created_on"]
     
     def __str__(self):
-       return f"{self.title} | {self.author}"
+       return f"{self.title} | Written by {self.author}"
     
     
     
@@ -32,7 +32,7 @@ class Comment(models.Model):
     challenge = models.FloatField(default=3.0)
         
     class Meta:
-        ordering = ["created_on"]
+        ordering = ["-created_on"]
     
     def __str__(self):
        return f"Comment {self.title} by {self.author}"
